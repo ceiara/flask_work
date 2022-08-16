@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="/">MLDL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/KNeighbors">KNeighbors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/car">Car</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/member">Member</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            </div>
+        </nav>
+        <h1>Hello, world!</h1>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                        aria-expanded="false" aria-controls="collapseOne">
+                        최근접이웃회귀
+                    </button>
+                </h2>
+                {% if knre : %}
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"> 
+                {% endif %}
+                {% if not knre : %}
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                {% endif %}
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>K-NN Regression(K-최근접 이웃 회귀).</strong>
+                        임의의 어떤 '숫자'를 예측하는 문제를 회귀(Regression)라고 한다.
+                        그중 K-NN Regression(K-최근접 이웃 회귀) 알고리즘은 주변의 가장 가까운 K개의 샘플을 통해 값을 예측하는 방식이다.
+                        예를 들어 가장 간단한 방식으로는 K개 샘플의 평균을 이용할 수 있다.
+                        <code>Regression</code>
+                        <p class="p-3">
+                            x_train = np.array([[2, 1],[3, 2],[3, 4],[5, 5],[7, 5],[2, 5],[8, 9],[9, 10],[6, 12]]) <br>
+                            x_test = np.array([[9, 2],[6, 10],[2, 4]]) <br>
+                            y_train = np.array([3, 5, 7, 10, 12, 7, 13, 13, 12]) <br>
+                            y_test = np.array([13, 12, 6]) <br>
+                            <br>
+                            knr = KNeighborsRegressor(n_neighbors=3) <br>
+                            knr.fit(x_train, y_train) <br>
+                        </p>
+                        <h3>{{pred1}}</h3>
+                        <div class="text-center p-5">
+                            <form method="post">
+                                <h3>x0 = </h3>
+                                <input class="form-control" type="text" name="x0" value="5">
+                                <h3>x1 = </h3>
+                                <input class="form-control" type="text" name="x1" value="5">
+                                <input type="submit" class="btn btn-primary m-3" value="예측하기">
+                            </form>
+                        </div>
+                        <div>
+                            <img src="/knrfiledown/{{x1}}/{{x2}}">
+                            <img src="/static/img/x0_x1_y1.png">
+                            <img src="/static/img/x0_x1_y2.png">
+                            <img src="/static/img/x0_x1_y3.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        최근접이웃분류
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse {{kcl}}" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>최근접 이웃 탐색(영어: nearest neighbor search)은</strong>
+                        가장 가까운 (또는 가장 근접한) 점을 찾기 위한 최적화 문제이다.
+                        근접 탐색(proximity search), 유사도 탐색(similarity search), 최근접 점쌍 문제(closest point search)
+                        라고도 불린다.
+                        <code>.nearest .proximity .similarity</code>
+                        <p class="p-3">
+                            knclf = KNeighborsClassifier(n_neighbors=1)<br>
+                            knclf.fit(x_data, y_data)
+                        </p>
+                        <div class="btn-group">
+                            <a href="/filedown/o" class="btn btn-primary">o파일다운로드</a>
+                            <a href="/filedown/x" class="btn btn-primary">x파일다운로드</a>
+                        </div>
+                        <h3 class="m-3">{{pred2}}</h3>
+                        <div>
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="predtarget" class="form-label">예측하고자 하는 데이터</label>
+                                    <input type="file" class="form-control" id="predtarget" name="filename"
+                                        aria-describedby="emailHelp">
+                                    <div id="predtarget" class="form-text">
+                                        5x5 이미지를 업로드 하시면 O, X를 예측해드립니다.
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <div>
+                            <img src="/static/img/x_data[0]_plt.png">
+                            <img src="/static/img/x_data[1]_plt.png">
+                            <img src="/static/img/x_data[2]_plt.png">
+                            <img src="/static/img/x_data[3]_plt.png">
+                            <img src="/static/img/x_data[4]_plt.png">
+                            <img src="/static/img/x_data[5]_plt.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

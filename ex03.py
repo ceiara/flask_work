@@ -1,10 +1,13 @@
-from itertools import count
-from matplotlib.patches import ConnectionPatch
 import numpy as np 
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib
 
-plt.style.use("seaborn-ticks")
+plt.style.use("ggplot")
+matplotlib.rcParams['font.family']='Malgun Gothic'
+matplotlib.rcParams['axes.unicode_minus']=False
+
+# plt.style.use("seaborn-ticks")
 data = pd.read_excel('static/data/carprice/carprice.xlsx')
 
 # 막대그래프
@@ -14,9 +17,9 @@ data = pd.read_excel('static/data/carprice/carprice.xlsx')
 # print(ta.columns)
 # print(ta.index.to_numpy())
 
-# plt.bar(ta.index.to_numpy()-0.1,ta['가격'].to_numpy(),width=0.1,alpha=0.5, label='price')
-# plt.bar(ta.index.to_numpy(),ta['배기량'].to_numpy(),width=0.1,alpha=0.5, label='displacement')
-# plt.bar(ta.index.to_numpy()+0.1,ta['중량'].to_numpy(),width=0.1,alpha=0.5, label='weight')
+# plt.bar(ta.index.to_numpy()-0.1,ta['가격'].to_numpy(),width=0.1,alpha=0.5, label='가격')
+# plt.bar(ta.index.to_numpy(),ta['배기량'].to_numpy(),width=0.1,alpha=0.5, label='배기량')
+# plt.bar(ta.index.to_numpy()+0.1,ta['중량'].to_numpy(),width=0.1,alpha=0.5, label='중량')
 # plt.xticks(rotation=30)
 # plt.yticks(rotation=30)
 # # plt.grid()
@@ -55,7 +58,7 @@ fig, ax = plt.subplots(figsize=(6, 3), subplot_kw=dict(aspect="equal"))
 recipe = ["54 대 2015",
           "6 대 2014",
           "3 대 2013",
-          "4 대 2012"
+          "4 대 2012",
           "4 대 2011"]
 
 data = [float(x.split()[0]) for x in recipe]
@@ -71,13 +74,13 @@ wedges, texts, autotexts = ax.pie(data, autopct=lambda pct: func(pct, data),
                                   textprops=dict(color="w"))
 
 ax.legend(wedges, ingredients,
-          title="Year",
+          title="년도",
           loc="center left",
           bbox_to_anchor=(1, 0, 0.5, 1))
 
 plt.setp(autotexts, size=6, weight="bold")
 
-ax.set_title("The number of Car by Year")
+ax.set_title("년식별 차량수")
 
 # plt.show()
 plt.savefig('year of car.png')

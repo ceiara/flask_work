@@ -24,16 +24,18 @@ def index():
 def member():
     db = pymysql.connect(
         host="localhost",
-        user='root',
-        password='1234',
+        user='do1',
+        password='do1',
         charset='utf8',
-        database='test')
+        database='python')
     cur = db.cursor()
     cur.execute('select * from member')
     rs = cur.fetchall()
     cur.close()
     return render_template("member.html", rs=rs)
 
+
+# GET: 주소들어왔을때 / POST: submit button
 
 @app.route("/memberform", methods=['GET', 'POST'])
 def memberform():
@@ -46,10 +48,10 @@ def memberform():
         name = request.form['name']
         db = pymysql.connect(
             host="localhost",
-            user='root',
-            password='1234',
+            user='do1',
+            password='do1',
             charset='utf8',
-            database='test')
+            database='python')
         cur = db.cursor()
         cur.execute(f'''insert into member 
                     (email,password,name,regdate)
@@ -58,8 +60,6 @@ def memberform():
         db.commit()
         cur.close()
     return render_template("memberform.html")
-
-# GET: 주소들어왔을때 / POST: submit button
 
 
 @app.route("/KNeighbors", methods=['GET', 'POST'])
@@ -109,10 +109,6 @@ def car():
     train_target = data['가격'].to_numpy()
     table_data = data[['년식','종류','연비','마력','토크','연료','하이브리드','배기량','중량','변속기','가격']].to_numpy()
     return render_template("car.html",table_data=table_data)
-
-@app.route("/aaa")
-def aaa():
-    return render_template("aaa.html")
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0")

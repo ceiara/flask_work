@@ -16,31 +16,20 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-            <a class="navbar-brand" href="/">MLDL</a>
+            <a class="navbar-brand link-dark" href="/">MLDL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/KNeighbors">KNeighbors</a>
+                        <a class="nav-link active link-dark" aria-current="page" href="/KNeighbors">KNeighbors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/car">Car</a>
+                        <a class="nav-link active link-dark" aria-current="page" href="/car">Car</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/member">Member</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                        <a class="nav-link link-dark" href="/member">Member</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -50,7 +39,7 @@
             </div>
             </div>
         </nav>
-        <h1>Hello, world!</h1>
+        <h1 class="m-3">회귀 분석 및 분류</h1>
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
@@ -65,7 +54,7 @@
                 {% if not knre : %}
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
                 {% endif %}
-                    data-bs-parent="#accordionExample">
+                    <!-- data-bs-parent="#accordionExample"> -->
                     <div class="accordion-body">
                         <strong>K-NN Regression(K-최근접 이웃 회귀).</strong>
                         임의의 어떤 '숫자'를 예측하는 문제를 회귀(Regression)라고 한다.
@@ -85,9 +74,9 @@
                         <div class="text-center p-5">
                             <form method="post">
                                 <h3>x0 = </h3>
-                                <input class="form-control" type="text" name="x0" value="5">
+                                <input class="form-control" type="text" name="x0" value=" ">
                                 <h3>x1 = </h3>
-                                <input class="form-control" type="text" name="x1" value="5">
+                                <input class="form-control" type="text" name="x1" value=" ">
                                 <input type="submit" class="btn btn-primary m-3" value="예측하기">
                             </form>
                         </div>

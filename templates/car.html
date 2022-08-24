@@ -27,47 +27,33 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">MLDL</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/KNeighbors">KNeighbors</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/car">Car</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/member">Member</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
+            <a class="navbar-brand link-dark" href="/">MLDL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active link-dark" aria-current="page" href="/KNeighbors">KNeighbors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active link-dark" aria-current="page" href="/car">Car</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark" href="/member">Member</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
             </div>
         </nav>
-        <h1>CAR!!</h1>
-        <p class="">자동차의 특성들을 파악하여 가격을 예측합니다.</p>
+        <div class="m-3">
+            <h1>CAR!!</h1>
+            <p class="">자동차의 특성들을 파악하여 가격을 예측합니다.</p>
+        </div>
         <div class="p-3 m-5 border rounded">
             <table class="table" id="mytable">
                 <thead>
@@ -104,19 +90,23 @@
                 </tbody>
             </table>
         </div>
-        <p>
+        <p style="margin-left: 48px;">
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               분석표
             </button>
-          </p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body m-5">
-                <h5>📊📌년도별 자동차 개수</h5>
-                <img src="/static/myimg/year of car.png" alt="">
-                <h5>📊📌년도별 가격, 배기량, 중량 분석</h5>
-                <img src="/static/myimg/x3_y1.png">
+        </p>
+        <div class="collapse " id="collapseExample">
+            <div class="d-flex p-2" style="margin: 0 40px;">
+                <div class="card card-body" style="margin-bottom: 20px;">
+                    <h5>📊📌년도별 차량수</h5>
+                    <img style="padding-top: 45px;" src="/static/myimg/year of car1.png" alt="">
+                </div>
+                <div class="card card-body" style="margin: 0 0 20px 8px;">
+                    <h5>📊📌년도별 가격, 배기량, 중량 분석</h5>
+                    <img src="/static/myimg/x3_y1.png">
+                </div>
             </div>
-          </div>
+        </div>
     </div>
 </body>
 
